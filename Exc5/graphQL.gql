@@ -1,0 +1,35 @@
+# Root Query Type
+type Query {
+  # Fetch client information by ID
+  client(id: String!): Client
+  
+  # Fetch a list of client documents by client ID
+  clientDocuments(id: String!): [Document]
+  
+  # Fetch information about client's relatives by client ID
+  clientRelatives(id: String!): [Relative]
+}
+
+# Client Object Type
+type Client {
+  id: String
+  name: String
+  age: Int
+}
+
+# Document Object Type
+type Document {
+  id: String
+  type: String
+  number: String
+  issueDate: String
+  expiryDate: String
+}
+
+# Relative Object Type
+type Relative {
+  id: String
+  relationType: String
+  name: String
+  age: Int
+}
