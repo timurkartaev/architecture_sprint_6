@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scalable-pod-identifier-deployment
+  labels:
+    app: scalable-pod-identifier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scalable-pod-identifier
+  template:
+    metadata:
+      labels:
+        app: scalable-pod-identifier
+    spec:
+      containers:
+      - name: scalable-pod-identifier
+        image: shestera/scaletestapp
+        resources:
+          requests:
+            memory: "20Mi"
+          limits:
+            memory: "30Mi"
